@@ -1,9 +1,0 @@
-2017-07-19 14:47:25,908 [INFO] from application in scala-execution-context-global-519 - ApplicationTimer demo: Starting application at 2017-07-19T12:47:25.907Z.
-2017-07-19 14:47:26,245 [INFO] from play.api.http.EnabledFilters in scala-execution-context-global-519 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
-
-    play.filters.csrf.CSRFFilter
-    play.filters.headers.SecurityHeadersFilter
-    play.filters.hosts.AllowedHostsFilter
-    filters.ExampleFilter
-
-2017-07-19 14:47:26,249 [INFO] from play.api.Play in scala-execution-context-global-519 - Application started (Dev)
