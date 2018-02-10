@@ -1,0 +1,11 @@
+2018-02-10 12:35:03,413 [INFO] from application in scala-execution-context-global-58 - Creating Pool for datasource 'default'
+2018-02-10 12:35:03,636 [INFO] from play.api.db.DefaultDBApi in scala-execution-context-global-58 - Database [default] connected at jdbc:mysql://localhost/warframe_market
+2018-02-10 12:35:03,696 [INFO] from application in scala-execution-context-global-58 - ApplicationTimer demo: Starting application at 2018-02-10T11:35:03.695Z.
+2018-02-10 12:35:03,984 [INFO] from play.api.http.EnabledFilters in scala-execution-context-global-58 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+
+    play.filters.csrf.CSRFFilter
+    play.filters.headers.SecurityHeadersFilter
+    play.filters.hosts.AllowedHostsFilter
+    filters.ExampleFilter
+
+2018-02-10 12:35:03,990 [INFO] from play.api.Play in scala-execution-context-global-58 - Application started (Dev)

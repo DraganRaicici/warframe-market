@@ -11,6 +11,7 @@ scalaVersion := "2.12.2"
 libraryDependencies ++= Seq(
   guice,
   jdbc,
+  evolutions,
   "org.scalatestplus.play" %% "scalatestplus-play" % "3.0.0" % Test,
   "com.h2database" % "h2" % "1.4.194",
   "com.typesafe.slick" %% "slick" % "3.2.1",
