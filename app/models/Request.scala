@@ -1,4 +1,7 @@
 package models
 
-case class Request(requestType: RequestType.RequestType, user: User, item: Item) {
+import java.time.ZonedDateTime
+
+case class Request(user: User, requestType: RequestType.RequestType, item: Item, price: Int, count: Int, publishedDate: ZonedDateTime) {
+
 }

@@ -1,50 +1,43 @@
 # Users schema
 
 # --- !Ups
-DROP TABLE IF EXISTS Request;
-DROP TABLE IF EXISTS Item;
-DROP TABLE IF EXISTS User;
-DROP TABLE IF EXISTS ItemType;
+DROP TABLE IF EXISTS request;
+DROP TABLE IF EXISTS item;
+DROP TABLE IF EXISTS user;
 
-CREATE TABLE User (
-    `id` bigint(20) PRIMARY KEY NOT NULL AUTO_INCREMENT,
+CREATE TABLE user(
+    `user_id` bigint(20) PRIMARY KEY NOT NULL AUTO_INCREMENT,
     `name` varchar(255) NOT NULL,
     `pw` varchar(255) NOT NULL,
     `availability` varchar(255) NOT NULL
 );
 
-CREATE TABLE ItemType(
-	`id` bigint(20) PRIMARY KEY NOT NULL AUTO_INCREMENT,
-	`name` varchar(255) NOT NULL,
-	`rank` varchar(30),
-	`description` varchar(255)
+CREATE TABLE item(
+	`item_id` bigint(20) PRIMARY KEY NOT NULL AUTO_INCREMENT,
+	`name` varchar(255),
+	`item_type` enum('Mod','Weapon','Component','Relic') NOT NULL,
+	`description` varchar(255),
+	`link` varchar(255)
 );
 
-CREATE TABLE Item(
-	`id` bigint(20) PRIMARY KEY NOT NULL AUTO_INCREMENT,
-	`itemTypeId` bigint(20) NOT NULL,
-	`price` int(10),
-	`count` int(10),
-	`publishedDate` date,
+CREATE TABLE request(
+    `request_id` bigint(20) PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    `user_id` bigint(20) NOT NULL,
+    `request_type` enum('Sell', 'Buy') NOT NULL,
+    `item_id` bigint(20) NOT NULL,
+    `rank` varchar(30),
+    `price` int(10),
+    `count` int(10),
+    `publishedDate` date,
 
-	FOREIGN KEY (itemTypeId)
-		REFERENCES ItemType(id)
-);
-
-CREATE TABLE Request (
-    `id` bigint(20) PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    `userId` bigint(20) NOT NULL,
-    `requestType` ENUM('Sell', 'Buy') NOT NULL,
-    `itemId` bigint(20) NOT NULL,
-    FOREIGN KEY (userId)
-		REFERENCES User(id),
-    FOREIGN KEY (itemId)
-		REFERENCES Item(id)		
+    FOREIGN KEY (user_id)
+		REFERENCES user(user_id),
+    FOREIGN KEY (item_id)
+		REFERENCES item(item_id)
 );
 
 # --- !Downs
 
-DROP TABLE Request;
-DROP TABLE Item;
-DROP TABLE User;
-DROP TABLE ItemType;
+DROP TABLE request;
+DROP TABLE item;
+DROP TABLE user;

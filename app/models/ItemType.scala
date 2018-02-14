@@ -1,6 +1,10 @@
 package models
 
-case class ItemType(name: String,rank: String="", description: String) {
-
-
+object ItemType extends Enumeration {
+  type ItemType = Value
+  val MOD=Value("Mod")
+  val WEAPON=Value("Weapon")
+  val COMPONENT=Value("Component")
+  val RELIC=Value("Relic")
 }
+
