@@ -1,6 +1,7 @@
 package models
 
+import models.ItemType._
 
 
-case class Item(val name: String, itemType: ItemType.ItemType, description: String, link: String) {
+case class Item(id: Option[Long], name: String, itemType: ItemType, description: String, link: String) {
 }

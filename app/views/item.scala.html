@@ -1,0 +1,39 @@
+@(item: Item, itemForm: Form[ItemForm.Data])(implicit messages: Messages)
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+</head>
+<body>
+@import helper._
+
+@main(item.name){
+
+<div id="search-box">
+    <fieldset>
+        @helper.form(action = routes.HomeController.item(), 'class->"search-form", 'id->"search-form"){
+
+        @if(itemForm.hasGlobalErrors) {
+        @itemForm.globalErrors.map { error: FormError =>
+        <div>
+            @error.key: @error.message
+        </div>
+        }
+        }
+        <input type="text" name="name" required="required" value="@itemForm.data.get("name")" />
+        @* helper.inputText(itemForm("name"), 'placeholder->"Search..") *@
+        <div class="form-actions">
+            <button type="submit"><i class="fa fa-search"></i></button>
+        </div>
+    </fieldset>
+    }
+</div>
+
+<h3>Item found: @item.name, and the information is: @item.description</h3>
+
+}
+</body>
+</html>
+
+
+

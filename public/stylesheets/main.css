@@ -109,8 +109,10 @@ form.search-form button:hover {
 }
 
 form.search-form::after {
-    content: "";
-    clear: both;
     display: table;
+}
+
+body h3 {
+    color: white;
 }
 

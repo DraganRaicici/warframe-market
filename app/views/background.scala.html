@@ -1,6 +1,16 @@
+@(itemForm: Form[ItemForm.Data])(implicit messages: Messages)
 <div id="search-box">
-    <form class="search-form" action="/action_page.php">
-        <input type="text" placeholder="Search..">
-        <button type="submit"><i class="fa fa-search"></i></button>
-    </form>
+
+    @helper.form(action = routes.HomeController.item(), 'class->"search-form"){
+    @if(itemForm.hasGlobalErrors) {
+    @itemForm.globalErrors.map { error: FormError =>
+    <div>
+        @error.key: @error.message
+    </div>
+    }
+    }
+    <input type="text" name="name" required="required" value="@itemForm.data.get("name")" />
+    @*helper.inputText(itemForm("name"), 'placeholder->"Search..")*@
+    <button type="submit"><i class="fa fa-search"></i></button>
+    }
 </div>
