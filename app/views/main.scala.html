@@ -8,7 +8,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
-    <head>
+    <section>
         <title>@title</title>
         <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/main.css")">
         <link rel="stylesheet" href="@routes.Assets.versioned("stylesheets/bootstrap.min.css")">
@@ -19,9 +19,37 @@
 <body>
         <section class="navbar">@navbar()</section>
         <section class="content">@content</section>
+         <!--Footer-->
+      <footer class="footer">
+
+          <!--Footer Links-->
+          <div class="container-fluid">
+              <div class="row">
+
+                  <!--First column-->
+                  <div class="col-md-6">
+                      <h3>Disclaimer</h3>
+                      <p>Digital Extreme Ltd, Warframe and the logo Warframe are registered trademarks. All rights are reserved worldwide. This site has no official link with Digital Extremes Ltd or Warframe. All artwork, screenshots, characters or other recognizable features of the intellectual property relating to these trademarks are likewise the intellectual property of Digital Extreme Ltd.</p>
+                  </div>
+                  <!--/.First column-->
+
+                  <!--Second column-->
+                  <div class="col-md-6">
+                      <h3>Links</h3>
+                      <ul class="list-unstyled">
+                          <li><a href="#!">Link 1</a></li>
+                          <li><a href="#!">Link 2</a></li>
+                          <li><a href="#!">Link 3</a></li>
+                          <li><a href="#!">Link 4</a></li>
+                      </ul>
+                  </div>
+                  <!--/.Second column-->
+              </div>
+          <!--/.Footer Links-->
+      </footer>
+      <!--/.Footer-->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <script type='text/javascript' src='@routes.Assets.versioned("javascripts//bootstrap.min.js")'></script>
-
     </body>
 
 </html>

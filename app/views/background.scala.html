@@ -1,16 +1,17 @@
 @(itemForm: Form[ItemForm.Data])(implicit messages: Messages)
-<div id="search-box">
 
-    @helper.form(action = routes.HomeController.item(), 'class->"search-form"){
-    @if(itemForm.hasGlobalErrors) {
-    @itemForm.globalErrors.map { error: FormError =>
-    <div>
-        @error.key: @error.message
-    </div>
-    }
-    }
-    <input type="text" name="name" required="required" value="@itemForm.data.get("name")" />
-    @*helper.inputText(itemForm("name"), 'placeholder->"Search..")*@
-    <button type="submit"><i class="fa fa-search"></i></button>
+<div id="search-box" style="opacity: 1; transform-style: preserve-3d; backface-visibility: hidden; transform: translate3d(0px, 0px, 0px);">
+    <fieldset>
+        @helper.form(action = routes.HomeController.item(), 'class->"search-form"){
+            @if(itemForm.hasGlobalErrors) {
+            @itemForm.globalErrors.map { error: FormError =>
+            <div>
+            @error.key: @error.message
+            </div>
+            }
+        }
+        <input type="text" name="name" required="required" value="@itemForm.data.get("name")" />
+        <button type="submit"><i class="fa fa-search"></i></button>
+    </fieldset>
     }
 </div>

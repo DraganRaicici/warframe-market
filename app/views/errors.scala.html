@@ -1,12 +1,13 @@
-@(itemName: String)
+@(itemForm: Form[ItemForm.Data], itemName: String)(implicit messages: Messages)
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Error</title>
 </head>
 <body>
-@main("Handler Not Found") {
+@main("Error") {
+
+@background(itemForm)
 
 <h3>Item @itemName Not Found</h3>
 

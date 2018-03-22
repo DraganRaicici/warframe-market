@@ -32,53 +32,6 @@ class HomeController @Inject()(
 
   import ItemForm._
 
-  //  def item = Action.async { implicit request =>
-  //    itemForm.bindFromRequest.fold(
-  //      formWithErrors => itemRepo.findByName("Energy Siphon").map(item => BadRequest(views.html.index(formWithErrors))),
-  //      item => {
-  //        for {
-  //          _ <- itemRepo.findByName(item.name)
-  //        } yield Redirect(routes.HomeController.item(item,itemForm))
-  //      }
-  //    )
-  //  }
-
-  //    def item = Action.async { implicit request =>
-  //      val errorFunction = { formWithErrors: Form[Data] =>
-  //        // This is the bad case, where the form had validation errors.
-  //        // Let's show the user the form again, with the errors highlighted.
-  //        // Note how we pass the form with errors to the template.
-  //        BadRequest(views.html.index(formWithErrors))
-  //      }
-  //
-  //      val successFunction = { data: Data =>
-  //        // This is the good case, where the form was successfully parsed as a Data object.
-  //        val found = itemRepo.returnHardCodedItem
-  //         // Redirect(routes.HomeController.item(found, successFunction))
-  //          Ok(views.html.item(found, successFunction))
-  //
-  //      }
-  //
-  //      val formValidationResult = form.bindFromRequest
-  //      formValidationResult.fold(errorFunction, successFunction)
-  //    }
-
-  //  def item = Action.async { implicit request =>
-  //    itemForm.bindFromRequest.fold(
-  //      formWithErrors => {
-  //        BadRequest(views.html.index(formWithErrors))
-  //      },
-  //      toBeFound => {
-  //        //val returned = itemRepo.returnHardCodedItem(toBeFound.name)
-  //        val returned = itemRepo.findByName(toBeFound.name).map{
-  //          case Some(m: Item)=> Ok(views.html.item(m, itemForm))
-  //          case None=> NotFound
-  //        }
-  //        returned
-  //        //Ok(views.html.item(returned, itemForm))
-  //      }
-  //    )
-  //  }
   val item = Action.async(parse.form(itemForm, onErrors = (formWithErrors: Form[ItemForm.Data]) => {
     implicit val messages = messagesApi.preferred(Seq(Lang.defaultLang))
     BadRequest(views.html.index(formWithErrors))
@@ -86,22 +39,8 @@ class HomeController @Inject()(
     val itemData = request.body
     val returned = itemRepo.findByName(itemData.name).map {
       case Some(m: Item) => Ok(views.html.item(m, itemForm))
-      case None =>  NotFound(views.html.errors(itemData.name)) //BadRequest(views.html.index).flashing("notFoundError"->s"Item ${itemData.name} does not exist.")
+      case None =>  NotFound(views.html.errors(itemForm, itemData.name))
     }
     returned
   }
-
-
-  def hardCoded = Action { implicit request =>
-    itemForm.bindFromRequest().fold(
-      formWithErrors => BadRequest(views.html.index(formWithErrors)),
-      item => Ok(s"Item ${item.name} was found"))
-  }
-
-  //  def find = Action.async { implicit request =>
-  //    itemDao.findByName("Dead Eye").map{ item =>
-  //      Ok(views.html.welcome(item.getOrElse("Not found").toString))
-  //    }
-  //  }
-
 }

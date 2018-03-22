@@ -46,7 +46,6 @@ class ItemRepository @Inject()(protected val dbConfigProvider: DatabaseConfigPro
     new Item(Some(2L), name, ItemType.Component, "empty desc", "empty link")
   }
 
-
   def list: Future[Seq[Item]] =
     db.run(items.result)
 

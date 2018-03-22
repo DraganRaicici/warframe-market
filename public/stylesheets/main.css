@@ -1,8 +1,36 @@
+html {
+  height: 100%;
+  box-sizing: border-box;
+ font-family:sans-serif;
+ line-height:1.15;
+ -webkit-text-size-adjust:100%;
+ -ms-text-size-adjust:100%;
+ -ms-overflow-style:scrollbar;
+ -webkit-tap-highlight-color:transparent
+}
+*,:after,:before {
+ box-sizing:inherit
+}
+
 body {
     background-image: url("../images/background.jpeg");
     background-repeat:no-repeat;
     background-size:cover;
+
+    position: relative;
+    margin: 0;
+    padding-bottom: 6rem;
+    min-height: 100%;
+    overflow-y: scroll;
+    margin:0;
+    font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif;
+    font-size:1rem;
+    font-weight:400;
+    line-height:1.5;
+    color:#212529;
+    background-color:#fff
 }
+
 #login-dp{
     min-width: 250px;
     padding: 14px 14px 0;
@@ -52,6 +80,26 @@ body {
         background-color: inherit;
         border-top:0 none;
     }
+}
+@media (min-width:576px) {
+ .flex--container {
+  max-width:540px
+ }
+}
+@media (min-width:768px) {
+ .flex--container {
+  max-width:720px
+ }
+}
+@media (min-width:992px) {
+ .flex--container {
+  max-width:960px
+ }
+}
+@media (min-width:1200px) {
+ .flex--container {
+  max-width:1140px;
+ }
 }
 .container-fluid{
     background-color:rgba(245,245,245);
@@ -115,4 +163,61 @@ form.search-form::after {
 body h3 {
     color: white;
 }
+
+/**
+ * Footer Styles
+ */
+
+footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  background-color: rgba(245,245,245);
+  text-align: center;
+}
+footer h3 {
+    color:#76939a;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-size: 14px;
+    margin-top: 10px; 
+}
+#warframe_react,#warframe_react>section,body,html {
+ min-height:100vh;
+ font-family:Lato;
+ font-size:14px
+}
+html {
+ overflow-y:scroll
+}
+
+.flex--left,.flex--right {
+ -webkit-box-flex:1;
+ -ms-flex-positive:1;
+ flex-grow:1;
+ overflow:hidden;
+ position:relative;
+}
+.flex--container,.flex--root {
+ display:-webkit-box;
+ display:-ms-flexbox;
+ display:flex
+}
+
+.flex--container {
+ padding:0 10px;
+ -ms-flex-preferred-size:100%;
+ flex-basis:100%;
+ -ms-flex-wrap:wrap;
+ flex-wrap:wrap;
+ margin-right:auto;
+ margin-left:auto;
+ padding-right:10px;
+ padding-left:10px;
+ width:100%
+}
+
 

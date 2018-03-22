@@ -9,27 +9,24 @@
 
 @main(item.name){
 
-<div id="search-box">
-    <fieldset>
-        @helper.form(action = routes.HomeController.item(), 'class->"search-form", 'id->"search-form"){
+@background(itemForm)
 
-        @if(itemForm.hasGlobalErrors) {
-        @itemForm.globalErrors.map { error: FormError =>
+<div class="flex--left"></div>
+<div class="flex--container">
+    <section class="item_description">
+        <h2>Description</h2>
         <div>
-            @error.key: @error.message
+            <p>@item.description</p>
         </div>
-        }
-        }
-        <input type="text" name="name" required="required" value="@itemForm.data.get("name")" />
-        @* helper.inputText(itemForm("name"), 'placeholder->"Search..") *@
-        <div class="form-actions">
-            <button type="submit"><i class="fa fa-search"></i></button>
-        </div>
-    </fieldset>
-    }
+    </section>
+    <div class="item_attributes"></div>
+    <div class="wiki_link"><h2>Wiki</h2>
+        <a href="@item.link">@item.name</a>
+    </div>
 </div>
+<div class="flex--right"></div>
 
-<h3>Item found: @item.name, and the information is: @item.description</h3>
+@request(item)
 
 }
 </body>
